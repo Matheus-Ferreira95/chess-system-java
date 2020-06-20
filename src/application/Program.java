@@ -19,7 +19,7 @@ public class Program {
 		List<ChessPiece> captured = new ArrayList<>();
 		
 		
-		while (true) {
+		while (!chessMatch.getCheckMate()) {
 			try {
 				UI.clearScreen();
 				UI.printMatch(chessMatch, captured);
@@ -42,7 +42,7 @@ public class Program {
 			}
 			catch (ChessException e) {
 				System.out.println(e.getMessage());
-				sc.nextLine(); // aguardar o usuario digitar enter
+				sc.nextLine(); 
 			}
 			catch (InputMismatchException e) {
 				System.out.println(e.getMessage());
@@ -50,8 +50,8 @@ public class Program {
 			}
 			
 		}
-		
-
+		UI.clearScreen();
+		UI.printMatch(chessMatch, captured);
 	}
 
 }
